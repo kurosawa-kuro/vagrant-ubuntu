@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-22.04"
+
+  # VirtualBox設定
+  config.vm.provider "virtualbox" do |vb|
+    # メモリ設定
+    vb.memory = "10240"
+  end
+
+  # シェルスクリプトでのプロビジョニング
+  config.vm.provision "shell", inline: <<-SHELL
+    # システムアップデート
+    sudo apt update -y
+
+    mkdir -p /home/vagrant/dev
+    chown -R vagrant:vagrant /home/vagrant/dev
+  SHELL
+
+  # ポートの転送設定
+  ports = {80 => 80, 8080 => 8080, 3000 => 3000, 3306 => 3306, 3307 => 3307, 5432 => 5432}
+  ports.each do |guest, host|
+    config.vm.network "forwarded_port", guest: guest, host: host
+  end
+end
