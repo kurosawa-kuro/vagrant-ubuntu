@@ -1,8 +1,6 @@
 # vagrant-ubuntu
 
-こちらが要求に応じた情報の清書版です：
-
-### Vagrantを使用した開発環境の設定
+## Vagrantを使用した開発環境の設定
 
 1. **Vagrantの起動**
    - `vagrant up` コマンドを使用して、Vagrant環境を起動します。
