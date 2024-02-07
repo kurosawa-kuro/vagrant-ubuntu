@@ -1,1 +1,1 @@
-# vagrant_rails
+# vagrant-ubuntu
