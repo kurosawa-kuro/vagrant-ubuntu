@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook ./playbook/nodejs.yml
+ansible-playbook ./playbook/nodejs_18.yml
